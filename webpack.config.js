@@ -79,6 +79,17 @@ module.exports = function (env) {
           minimize: isProd,
           minimizer: [
             new TerserPlugin({
+              minify: (file, sourceMap) => {
+                const uglifyJsOptions = {};
+      
+                if (sourceMap) {
+                  uglifyJsOptions.sourceMap = {
+                    content: sourceMap,
+                  };
+                }
+      
+                return require("uglify-js").minify(file, uglifyJsOptions);
+              },
               terserOptions: {
                 parse: {
                   ecma: 8,
@@ -98,7 +109,6 @@ module.exports = function (env) {
                   ascii_only: true,
                 },
               },
-              // sourceMap: true,
             }),
             // This is only used in production mode
             new OptimizeCSSAssetsPlugin({
@@ -124,6 +134,7 @@ module.exports = function (env) {
         plugins: [
           PnpWebpackPlugin,
           new HtmlWebpackPlugin({
+            title: '文 · 竹',
             template: path.resolve(__dirname, './public/index.html'),
             minify: isProd ? {
               removeComments: true,
@@ -144,6 +155,9 @@ module.exports = function (env) {
             chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
           }),
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+        new webpack.SourceMapDevToolPlugin({
+          module: true,
+        }),
         new ESLintPlugin({
           extensions: ['js', 'mjs', 'jsx', 'ts', 'tsx'],
           formatter: require.resolve('react-dev-utils/eslintFormatter'),
@@ -158,7 +172,7 @@ module.exports = function (env) {
           baseConfig: {
             extends: [require.resolve('eslint-config-react-app/base')],
             rules: {
-              // 'react/react-in-jsx-scope': 'error',
+              'react/react-in-jsx-scope': 'error',
             },
           },
         }),
@@ -192,16 +206,26 @@ module.exports = function (env) {
                     include: path.resolve(__dirname, './src'),
                     loader: 'babel-loader',
                     options: {
+                      // http://babeljs.io/docs/plugins/#modules
                       presets:  [
-                        require("@babel/preset-env"),
-                        [
-                          "@babel/preset-react",
-                          {
-                            "runtime": "classic"
-                          }
-                        ]
+                        "@babel/preset-env",
+                        // {
+                        //   modules: false, // 使用es6
+                        //   useBuiltIns: "usage",
+                        //   corejs: {
+                        //       version: 2, // 使用core-js@2
+                        //       proposals: true,
+                        //   },
+                        // },
+                        "@babel/preset-react",
                       ],
                       plugins: [
+                        [
+                          '@babel/plugin-transform-runtime',
+                          {
+                              corejs: false, 
+                          },
+                        ],
                         [
                           'babel-plugin-named-asset-import',
                           {
@@ -213,12 +237,10 @@ module.exports = function (env) {
                             },
                           },
                         ],
-                        // isEnvDevelopment &&
-                        //   shouldUseReactRefresh &&
-                        //   require.resolve('react-refresh/babel'),
                       ].filter(Boolean),
                       cacheDirectory: true,
                       cacheCompression: false,
+                      sourceMap: true,
                       compact: isProd,
                     },
                   },
@@ -301,7 +323,7 @@ module.exports = function (env) {
         },
         mode: env,
         bail: isProd,
-        devtool: isProd ? 'source-map' : 'cheap-module-source-map',
+        devtool: isProd ? 'source-map' : 'source-map',
         performance: false,
     }
 }
