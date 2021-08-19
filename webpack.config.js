@@ -10,10 +10,6 @@ const webpack = require('webpack')
 const PostcssNormalize = require('postcss-normalize')
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 
-const imageInlineSizeLimit = parseInt(
-  process.env.IMAGE_INLINE_SIZE_LIMIT || '10000'
-);
-
 module.exports = function (env) {
     const isDev = env === 'development';
     const isProd = env === 'production';
@@ -79,17 +75,7 @@ module.exports = function (env) {
           minimize: isProd,
           minimizer: [
             new TerserPlugin({
-              minify: (file, sourceMap) => {
-                const uglifyJsOptions = {};
-      
-                if (sourceMap) {
-                  uglifyJsOptions.sourceMap = {
-                    content: sourceMap,
-                  };
-                }
-      
-                return require("uglify-js").minify(file, uglifyJsOptions);
-              },
+              sourceMap: true,
               terserOptions: {
                 parse: {
                   ecma: 8,
@@ -110,7 +96,6 @@ module.exports = function (env) {
                 },
               },
             }),
-            // This is only used in production mode
             new OptimizeCSSAssetsPlugin({
               cssProcessorOptions: {
                 parser: safePostCssParser,
@@ -196,7 +181,7 @@ module.exports = function (env) {
                     test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
                     loader: 'url-loader',
                     options: {
-                      limit: imageInlineSizeLimit,
+                      limit: 10000,
                       name: 'static/media/[name].[hash:8].[ext]',
                     },
                   },
@@ -206,17 +191,8 @@ module.exports = function (env) {
                     include: path.resolve(__dirname, './src'),
                     loader: 'babel-loader',
                     options: {
-                      // http://babeljs.io/docs/plugins/#modules
                       presets:  [
                         "@babel/preset-env",
-                        // {
-                        //   modules: false, // 使用es6
-                        //   useBuiltIns: "usage",
-                        //   corejs: {
-                        //       version: 2, // 使用core-js@2
-                        //       proposals: true,
-                        //   },
-                        // },
                         "@babel/preset-react",
                       ],
                       plugins: [
