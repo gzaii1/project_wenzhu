@@ -1,12 +1,12 @@
-import IHomeModel from './Home.model/type'
-import HomeModel from './Home.model'
+import { types } from 'mobx-state-tree'
+import { HomeModel } from './Home.model'
 
-interface IStore {
-    HomeModel: IHomeModel,
-}
+export type RootStoreType = typeof RootStoreModel.Type
 
-const store: IStore = {
-    HomeModel: new HomeModel(),
-}
+export const RootStoreModel = types.model('RootStore', {
+    HomeModel: types.optional(HomeModel, {}),
+})
 
-export default store
+const RootStore = RootStoreModel.create({})
+
+export default RootStore
