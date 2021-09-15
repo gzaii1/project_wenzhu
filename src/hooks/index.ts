@@ -1,1 +1,1 @@
-export * from './useSelector';
+export * from './useSelector'

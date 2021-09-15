@@ -1,3 +1,4 @@
+import { createContext } from 'react'
 import { types } from 'mobx-state-tree'
 import { HomeModel } from './Home.model'
 
@@ -8,5 +9,5 @@ export const RootStoreModel = types.model('RootStore', {
 })
 
 const RootStore = RootStoreModel.create({})
-
+export const storeContext = createContext<RootStoreType | null>(null)
 export default RootStore

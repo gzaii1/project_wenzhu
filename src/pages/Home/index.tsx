@@ -1,9 +1,10 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
-import styles from './styles.module.scss'
 import { useSelector } from '../../hooks'
+import styles from './styles.module.scss'
 
-const Home: React.FC = observer(() => {
+const Home: React.FC = observer((props) => {
+    console.log('props:', props)
     const homeModel = useSelector(state => state.HomeModel)
 
     return <div className={styles.home}>

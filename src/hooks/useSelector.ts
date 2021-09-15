@@ -1,10 +1,9 @@
 import { useContext } from 'react'
-import { storeContext } from '../App'
 import { useLocalObservable } from 'mobx-react-lite'
-import { RootStoreType } from '../store'
+import { RootStoreType, storeContext } from '../store'
 
-export const useSelector = <Selection>(selection: (store: RootStoreType) => Selection) => {
+export const useSelector = <Selection>(storeDispatcher: (store: RootStoreType) => Selection) => {
     const store = useContext(storeContext)
-    if (!store) throw new Error('错误的全局context');
-    return useLocalObservable(() => selection(store))
+    if (!store) throw new Error('useContext: error')
+    return useLocalObservable(() => storeDispatcher(store))
 }
