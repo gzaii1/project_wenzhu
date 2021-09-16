@@ -1,16 +1,20 @@
+/*
+    使用方法: 
+        - 启动命令: npm run mock
+        - 使用细则:
+            - 添加api接口, 需要直接在`/mock`目录下添加.json文件, 满足json要求即可
+            - 通常情况, 文件名即为接口名, 默认为get方法, 如果需要其他方法如post, 则可以将方法用"-"拼接到接口名后, 如`login-post.json`
+            - 工具并未对文件名做任何字符串上的删选, 请避免使用任何字母以外的字符, 尤其是"-"
+            - 本mock工具并未添加热启动功能, 修改json文件或添加接口后, 请自行重启
+            - 如果要发送文件, 可以放在/mock/public目录下, 请求时通过`/static/资源名`进行访问
+*/
 const express = require('express')
 const path = require('path')
 const glob = require('glob')
 const colors = require('colors')
-const port = 5000
 
-// const fs = require('fs')
-// const opt = {
-//     persistent:true, // persistent <boolean> 指示如果文件已正被监视，进程是否应继续运行。默认值: true。
-//     recursive: false// recursive <boolean> 指示应该监视所有子目录，还是仅监视当前目录。 这适用于监视目录时，并且仅适用于受支持的平台（参见注意事项）。默认值: false。
-// }
-
-// var server
+const port = 5000 // 默认端口号
+const prefix = "/api" // 前缀
 
 function loadFiles() {
     const app = express()
@@ -27,27 +31,16 @@ function loadFiles() {
         } else {
             path = fileName
         }
-        app[method](`/api/${path}`, (req, res) => {
+        app[method](`${prefix}/${path}`, (req, res) => {
             res.setHeader('Cache-Control', 'no-store');
             res.send(require(file))
         })
     })
-    // server = 
+
     app.listen(port, () => {
         console.log(colors.green(`mock数据已开启,正在发送至: http://localhost:${port}`))
     })
 }
 
+// 如果需要热启动, 可以在这里通过fs.watch或其他方式自行添加
 loadFiles()
-
-/*
-fs.watch(path.resolve(__dirname, './mock'),opt, (eventType, filename) => {
-    console.log(`事件类型是: ${eventType}`);
-    server.once('close', function () {
-        loadFiles()
-    })
-    server.close();
-})
-*/
-
-
