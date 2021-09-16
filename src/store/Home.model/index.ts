@@ -2,7 +2,7 @@ import { types, Instance } from 'mobx-state-tree'
 
 export interface IHomeModel extends Instance<typeof HomeModel> {}
 export const HomeModel = types
-    .model('HomeModel', {
+    .model({
         name: types.optional(types.string, 'alex'),
     })
     .actions((self) => {
@@ -13,5 +13,3 @@ export const HomeModel = types
             setName,
         }
     })
-
-export default HomeModel

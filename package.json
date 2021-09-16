@@ -85,6 +85,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "mock": "node server",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
@@ -161,5 +162,10 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "colors": "^1.4.0",
+    "express": "^4.17.1",
+    "glob": "^7.1.7"
   }
 }
