@@ -1,6 +1,6 @@
 import React, { useEffect }  from 'react'
 import { observer } from 'mobx-react-lite'
-import { useSelector } from '../../hooks'
+import { useSelector } from '@hooks'
 import { Card } from '@components'
 import styles from './styles.module.scss'
 

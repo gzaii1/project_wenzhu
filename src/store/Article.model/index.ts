@@ -15,7 +15,7 @@ export const ArticleModel = types
 
 export const ArticleListModel = types
     .model({
-            articles: types.array(types.optional(ArticleModel, {})),
+            articles: types.array(types.frozen<IArticleModel>()),
     })
     .actions((self) => {
         const getArticles = flow(function*() {
