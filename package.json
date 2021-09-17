@@ -86,7 +86,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "mock": "node server",
+    "mock": "nodemon server.js --watch mock --watch server.js",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
@@ -167,6 +167,7 @@
   "devDependencies": {
     "colors": "^1.4.0",
     "express": "^4.17.1",
-    "glob": "^7.1.7"
+    "glob": "^7.1.7",
+    "nodemon": "^2.0.12"
   }
 }
