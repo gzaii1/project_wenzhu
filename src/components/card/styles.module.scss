@@ -1,0 +1,31 @@
+@import '../../styles/size.scss';
+
+.wrapper {
+    color: red;
+    border: 1px solid black;
+    font-family: RobotoCondensed;
+}
+
+.header {
+
+}
+
+.body {
+
+}
+
+@media screen and (min-width: $screen-sm-min) {
+    .wrapper {
+        color: blue;
+    }
+}
+
+@media screen and (min-width: $screen-md-min) {
+
+}
+
+@media screen and (min-width: $screen-lg-min) {
+    .wrapper {
+        color: green;
+    }
+}

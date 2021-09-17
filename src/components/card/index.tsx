@@ -9,6 +9,9 @@ export const Card: React.FC<ICard> = (props) => {
     return <div className={styles.wrapper}>
         <header className={styles.header}>
             <span>{ title }</span>
+            <div className={styles.body}>
+                <span>{ text }</span>
+            </div>
         </header>
     </div>
 }
