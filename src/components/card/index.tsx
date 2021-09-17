@@ -1,12 +1,17 @@
 import React from 'react'
 import styles from './styles.module.scss'
-
+import { useHistory } from 'react-router'
 export const Card: React.FC<ICard> = (props) => {
     const {
         title,
         text,
     } = props
-    return <div className={styles.wrapper}>
+    const history = useHistory()
+    return <div className={styles.wrapper} onClick={() => {
+        history.push({
+            search: title
+        })
+    }}>
         <header className={styles.header}>
             <span>{ title }</span>
             <div className={styles.body}>

@@ -1,9 +1,14 @@
 @import '../../styles/size.scss';
 
 .wrapper {
+    box-sizing: border-box;
     color: red;
     border: 1px solid black;
     font-family: RobotoCondensed;
+    flex: 0 0 300px;
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
 }
 
 .header {

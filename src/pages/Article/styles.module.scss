@@ -1,0 +1,32 @@
+@import '../../styles/size.scss';
+
+
+.article {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.article-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (min-width: $screen-sm-min) {
+    .wrapper {
+        color: blue;
+    }
+}
+
+@media screen and (min-width: $screen-md-min) {
+
+}
+
+@media screen and (min-width: $screen-lg-min) {
+    .wrapper {
+        color: green;
+    }
+}

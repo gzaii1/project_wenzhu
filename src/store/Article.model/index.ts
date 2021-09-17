@@ -22,7 +22,13 @@ export const ArticleListModel = types
             let post = yield fetch('http://localhost:5000/api/articles').then(res => res.json())
             self.articles = post;
         })
+
+        const getArticleById = flow(function* (id: string) {
+             return yield fetch('http://localhost:5000/api/getArticleById').then(res => res.json())
+        })
+
         return {
             getArticles,
+            getArticleById,
         }
     })
