@@ -33,6 +33,7 @@ function loadFiles() {
         }
         app[method](`${prefix}/${path}`, (req, res) => {
             res.setHeader('Cache-Control', 'no-store');
+            res.setHeader('Access-Control-Allow-Origin', '*');
             res.send(require(file))
         })
     })
