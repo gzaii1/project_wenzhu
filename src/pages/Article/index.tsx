@@ -7,16 +7,16 @@ import {RouteComponentProps } from 'react-router-dom'
 import styles from './styles.module.scss'
 
 const Article: React.FC<RouteComponentProps> = observer((props) => {
-    const ArticleListModel = useSelector(state => state.ArticleListModel)
+    const { getArticles, articles } = useSelector(state => state.ArticleListModel)
 
     const { visible, article } = useArticleControl()
     useEffect(() => {
         // 获取article列表
-        ArticleListModel.getArticles()
-    }, []);
+        getArticles()
+    }, [])
 
     const articleRender = () => {
-        return ArticleListModel.articles.map(article => {
+        return articles.map(article => {
             return <Card 
                     key={article.id} 
                     title={article.title} 

@@ -1,4 +1,5 @@
 import { types, Instance, flow } from 'mobx-state-tree'
+import { request } from '@utils'
 
 export interface IArticleModel extends Instance<typeof ArticleModel> {}
 export interface IArticleListModel extends Instance<typeof ArticleListModel> {}
@@ -19,12 +20,12 @@ export const ArticleListModel = types
     })
     .actions((self) => {
         const getArticles = flow(function*() {
-            let post = yield fetch('http://localhost:5000/api/articles').then(res => res.json())
-            self.articles = post;
+            const result = yield request('/articles')
+            self.articles = result
         })
 
         const getArticleById = flow(function* (id: string) {
-             return yield fetch('http://localhost:5000/api/getArticleById').then(res => res.json())
+            return yield request('/article/id')
         })
 
         return {
