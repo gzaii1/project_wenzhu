@@ -1,0 +1,31 @@
+@use '../../styles/mask.scss' as mask;
+
+@import '../../styles/size.scss';
+@import '../../styles/zindex.scss';
+@import '../../styles/mask.scss';
+
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: $detail-wrapper;
+    transition: opacity .3s;
+    @include mask.mask;
+}
+
+[data-visible="show"] {
+    opacity: 1;
+    pointer-events: all;
+}
+
+[data-visible="hidden"] {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media screen and (min-width: $screen-sm-min) {}
+
+@media screen and (min-width: $screen-md-min) {}
+
+@media screen and (min-width: $screen-lg-min) {}
