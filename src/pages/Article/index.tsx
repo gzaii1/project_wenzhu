@@ -2,7 +2,7 @@
 import React, { useEffect }  from 'react'
 import { observer } from 'mobx-react-lite'
 import { useSelector, useArticleControl } from '@hooks'
-import { Card, Tag, Detail } from '@components'
+import { Card, Tag, Detail, Title } from '@components'
 import {RouteComponentProps } from 'react-router-dom'
 import styles from './styles.module.scss'
 
@@ -25,6 +25,7 @@ const Article: React.FC<RouteComponentProps> = observer((props) => {
         })
     }
     return <div className={styles['article']}>
+        <Title>文章</Title>
         <label>
             <input type="text" placeholder="输入你的tag"/>
         </label>
