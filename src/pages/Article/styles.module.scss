@@ -1,5 +1,9 @@
 @import '../../styles/size.scss';
+@import '../../styles/zindex.scss';
+@import '../../styles/mask.scss';
+@import '../../styles/colors.scss';
 
+$color: $primary-color;
 
 .article {
     height: 100vh;
@@ -8,6 +12,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: $color;
 }
 
 .article-wrapper {

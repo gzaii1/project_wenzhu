@@ -1,14 +1,53 @@
 @import '../../styles/size.scss';
+@import '../../styles/zindex.scss';
+@import '../../styles/mask.scss';
+@import '../../styles/colors.scss';
+
+$color: $primary-color;
+
+@mixin card-normal {
+    background: $color;
+    box-shadow:  20px 20px 60px darken($color, 30%),
+                -20px -20px 60px lighten($color, 70%);
+}
+
+@mixin card-selected {
+    background: lighten($color, 10%);
+    box-shadow:  20px 20px 60px darken($color, 30%),
+                -20px -20px 60px lighten($color,70%);
+}
+
+@mixin card-active {
+    background: $color;
+    transform: translate(0, 5px);
+    box-shadow:  20px 20px 60px darken($color, 30%),
+                -20px -20px 60px lighten($color, 70%),
+                inset 10px 10px 100px rgba($color: darken($color, 70%), $alpha: .02),
+                inset 10px 10px 50px rgba($color: darken($color, 70%), $alpha: .02),
+                inset 10px 10px 20px rgba($color: darken($color, 70%), $alpha: .01);
+}
 
 .wrapper {
     box-sizing: border-box;
-    color: red;
-    border: 1px solid black;
+    color: if(lightness($color) < 30%, lighten($color, 70%), darken($color, 70%));
     font-family: RobotoCondensed;
     flex: 0 0 300px;
     width: 300px;
     height: 300px;
     cursor: pointer;
+    margin: 10px;
+    border-radius: 50px;
+    will-change: transform;
+    @include card-normal();
+    transform: translate(0, 0);
+    transition: .3s;
+    &:hover {
+        @include card-selected();
+        margin: 10px 20px;
+    }
+    &:active {
+        @include card-active();
+    }
 }
 
 .header {
@@ -21,7 +60,7 @@
 
 @media screen and (min-width: $screen-sm-min) {
     .wrapper {
-        color: blue;
+        // color: blue;
     }
 }
 
@@ -31,6 +70,6 @@
 
 @media screen and (min-width: $screen-lg-min) {
     .wrapper {
-        color: green;
+        // color: green;
     }
 }
