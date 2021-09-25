@@ -21,12 +21,19 @@
 
 
 @include themeify {
-    $color: themed('main-color');
+    $color: getColor(main);
+    $light: getColor(light);
+    $dark: getColor(dark);
+    $font: themed(font);
+    
     .wrapper {
-        color: if(lightness($color) < 30%, lighten($color, 70%), darken($color, 70%));
+        color: $font; 
         background: $color;
-        box-shadow:  20px 20px 60px darken($color, 30%),
-                    -20px -20px 60px lighten($color, 70%);
+        box-shadow:  20px 20px 60px $dark,
+                    -20px -20px 60px $light;
+        &:hover {
+            background-color: hover($color);
+        }
     }
 }
 

@@ -14,6 +14,14 @@
     align-items: center;
 }
 
+@include themeify {
+    $color: getColor(main);
+
+    .article {
+        background-color: $color;
+    }
+}
+
 @media screen and (min-width: $screen-sm-min) {
     .wrapper {
         color: blue;

@@ -12,3 +12,8 @@
 @function themed($key) {
     @return map-get($theme-map, $key);
 }
+
+// 获取颜色map
+@function getColor($index) {
+    @return map-get(themed('color-map'), $index)
+}

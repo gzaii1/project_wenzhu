@@ -20,4 +20,4 @@ export const CommonModel = types
         }
     })
 
-type ThemeTypes = 'default' | 'dark'
+type ThemeTypes = 'default' | 'cheerful' | 'business'

@@ -38,7 +38,7 @@ const Article: React.FC<RouteComponentProps> = observer((props) => {
         </div>
 
         <button onClick={() => {
-            setTheme(theme === 'default' ? 'dark' : 'default')
+            setTheme(theme === 'default' ? 'cheerful' : theme === 'cheerful' ? "business" : theme === 'business' ? 'default' : 'default')
         }}>换一组:{theme}</button>
 
         {/* 文章主题弹窗, 之后做组件分离 */}

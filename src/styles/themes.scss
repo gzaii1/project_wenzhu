@@ -1,12 +1,41 @@
 $default-theme: (
-    main-color: #fff,
+    main: #fff,
+    font: #333,
+    color-map: (
+        main: #00EB91,
+        light: #47EEAE,
+        confirm: #00B872,
+        disabled: #206B4E,
+        dark: #006B42
+    ),
 );
 
-$dark-theme: (
-    main-color: red,
+$cheerful-theme: (
+    main: #8e8e8e,
+    font: #fff,
+    color-map: (
+        main: #EB4B07,
+        light: #EE7E4F,
+        confirm: #B83B06,
+        disabled: #6B3923,
+        dark: #6B2203
+    ),
+);
+
+$business-theme: (
+    main: #002E6B,
+    font: #fff,
+    color-map: (
+        main: #0066EB,
+        light: #4790EE,
+        confirm: #0050B8,
+        disabled: #20416B,
+        dark: #002E6B
+    ),
 );
 
 $themes: (
     default: $default-theme,
-    dark: $dark-theme,
+    cheerful: $cheerful-theme,
+    business: $business-theme,
 );
