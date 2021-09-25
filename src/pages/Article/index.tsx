@@ -9,6 +9,8 @@ import styles from './styles.module.scss'
 const Article: React.FC<RouteComponentProps> = observer((props) => {
     const { getArticles, articles } = useSelector(state => state.ArticleListModel)
 
+    const { theme, setTheme } = useSelector(state => state.CommonModel)
+
     const { visible, article } = useArticleControl()
     useEffect(() => {
         // 获取article列表
@@ -35,7 +37,9 @@ const Article: React.FC<RouteComponentProps> = observer((props) => {
             { articleRender() }
         </div>
 
-        <button>换一组</button>
+        <button onClick={() => {
+            setTheme(theme === 'default' ? 'dark' : 'default')
+        }}>换一组:{theme}</button>
 
         {/* 文章主题弹窗, 之后做组件分离 */}
         <Detail
