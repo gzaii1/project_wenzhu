@@ -1,0 +1,12 @@
+$default-theme: (
+    main-color: #fff,
+);
+
+$dark-theme: (
+    main-color: red,
+);
+
+$themes: (
+    default: $default-theme,
+    dark: $dark-theme,
+);

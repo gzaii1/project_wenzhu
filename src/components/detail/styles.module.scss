@@ -1,8 +1,4 @@
-@use '../../styles/mask.scss' as mask;
-
-@import '../../styles/size.scss';
-@import '../../styles/zindex.scss';
-@import '../../styles/mask.scss';
+@import '../../styles/common.scss';
 
 .container {
     position: fixed;
@@ -11,7 +7,7 @@
     overflow: hidden;
     z-index: $detail-wrapper;
     transition: opacity .3s;
-    @include mask.mask;
+    @include mask;
 }
 
 [data-visible="show"] {

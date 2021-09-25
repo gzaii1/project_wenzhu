@@ -3,7 +3,7 @@ import React, { useEffect }  from 'react'
 import { observer } from 'mobx-react-lite'
 import { useSelector, useArticleControl } from '@hooks'
 import { Card, Tag, Detail, Title } from '@components'
-import {RouteComponentProps } from 'react-router-dom'
+import { RouteComponentProps } from 'react-router-dom'
 import styles from './styles.module.scss'
 
 const Article: React.FC<RouteComponentProps> = observer((props) => {
