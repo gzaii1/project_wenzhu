@@ -3,6 +3,7 @@ import { types } from 'mobx-state-tree'
 import { CommonModel } from './Common.model'
 import { HomeModel } from './Home.model'
 import { ArticleModel, ArticleListModel } from './Article.model'
+import { DialogHeapModel } from './Dialog.model'
 
 export type RootStoreType = typeof RootStoreModel.Type
 
@@ -11,6 +12,7 @@ export const RootStoreModel = types.model('RootStore', {
     HomeModel: types.optional(HomeModel, {}),
     ArticleModel: types.optional(ArticleModel, {}),
     ArticleListModel: types.optional(ArticleListModel, {}),
+    DialogModel: types.optional(DialogHeapModel, {}),
 })
 
 const RootStore = RootStoreModel.create({})

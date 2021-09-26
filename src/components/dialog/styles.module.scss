@@ -1,0 +1,45 @@
+@import '../../styles/common.scss';
+
+@mixin hidden {
+    padding-bottom: 0px;
+    transform: translate(0, -10px);
+    & > div {
+        opacity: 0;
+    }
+}
+
+.dialog {
+    height: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: $main-dialog;
+    transform: translate(0, 0px);
+    [data-status=false] {
+        @include hidden;
+    }
+    section {
+        height: 0;
+        padding-bottom: 60px;
+        position: relative;
+        transition: .3s;
+        
+        & > div {
+            opacity: 1;
+            transition: .3s;
+            height: auto;
+            padding: 15px;
+        }
+    }
+}
+
+@include themeify {
+    $dark: getColor(disabled);
+    .dialog {
+        section {
+            & > div {
+                background-color: $dark;
+            }
+        }
+    }
+}
