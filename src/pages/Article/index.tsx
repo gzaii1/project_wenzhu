@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect }  from 'react'
 import { observer } from 'mobx-react-lite'
-import { useSelector, useArticleControl, useDialog } from '@hooks'
+import { useSelector, useArticleControl } from '@hooks'
 import { Card, Tag, Detail, Title } from '@components'
 import { RouteComponentProps } from 'react-router-dom'
+import { dialog } from '@utils'
 import styles from './styles.module.scss'
 
 const Article: React.FC<RouteComponentProps> = observer((props) => {
@@ -16,7 +17,6 @@ const Article: React.FC<RouteComponentProps> = observer((props) => {
         // 获取article列表
         getArticles()
     }, [])
-    const { show } = useDialog()
 
     const articleRender = () => {
         return articles.map(article => {
@@ -42,8 +42,8 @@ const Article: React.FC<RouteComponentProps> = observer((props) => {
             setTheme(theme === 'default' ? 'cheerful' : theme === 'cheerful' ? "business" : theme === 'business' ? 'default' : 'default')
         }}>换一组:{theme}</button>
         <button onClick={() => {
-            show({
-                title: `${Math.random()}`,
+            dialog().show({
+                title: `${Math.random() * 1000 | 0}`,
                 message: '',
                 buttons: [null]
             })

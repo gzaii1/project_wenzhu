@@ -5,8 +5,8 @@ const Box = (props: IDialog) => {
     const [visible, setVisible] = useState(false)
     const closedRef = useRef(false)
     useEffect(() => {
-        !closedRef.current && visible === false && setVisible(true)
-    }, [visible])
+        setTimeout(() => setVisible(true))
+    }, [])
     return <section data-status={visible}>
         <div>
             <header>

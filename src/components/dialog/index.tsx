@@ -10,4 +10,3 @@ export const Dialog = observer(() => {
         { heap.map((val, idx) => <Box key={idx} title={val.title} message={''} buttons={[]} />) }
     </section>
 })
-

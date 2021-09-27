@@ -5,16 +5,16 @@ export interface IDialogModel extends Instance<typeof DialogHeapModel> {}
 
 export interface IDialog {
     title?: string;
-    message: string;
-    buttons: [React.ReactNode | null ] | [];
+    message?: string;
+    buttons?: [React.ReactNode | null ] | [];
 }
 const DialogModel = types
     .model({
-        title: types.maybeNull(types.string),
-        message: types.maybeNull(types.string),
-        buttons: types.array(
-            types.optional(types.frozen<React.ReactNode>(), null, undefined)
-        ),
+        title: types.optional(types.maybeNull(types.string), ''),
+        message: types.optional(types.maybeNull(types.string), ''),
+        buttons: types.optional(types.array(
+            types.maybeNull(types.optional(types.frozen<React.ReactNode>(), undefined))
+        ), []),
     })
 export const DialogHeapModel = types
     .model({
