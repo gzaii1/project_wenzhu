@@ -3,17 +3,16 @@
 .wrapper {
     box-sizing: border-box;
     font-family: RobotoCondensed;
-    flex: 0 0 300px;
-    width: 300px;
-    height: 300px;
+    width: 80%;
+    flex: 1 0;
     cursor: pointer;
-    margin: 10px;
-    border-radius: 50px;
+    margin: 5px 0px;
+    border-radius: 30px;
     will-change: transform;
     transform: translate(0, 0);
     transition: .3s;
     &:hover {
-        margin: 10px 20px;
+        margin: 10px 0px;
     }
     &:active {
     }

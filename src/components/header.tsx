@@ -8,5 +8,6 @@ export const Header:React.FC = ({ children }) => {
         console.log('header:', store)
     }, [store])
     return <header>
+        {/* 这里是头部 */}
     </header>
 }
