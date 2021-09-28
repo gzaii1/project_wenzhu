@@ -1,11 +1,9 @@
 @function boxShadow($color) {
     @return darken($color, 30%);
 }
-
 @function hover($color) {
     @return lighten($color, 10%);
 }
-
 @function active($color) {
     @return lighten($color, 10%);
 }

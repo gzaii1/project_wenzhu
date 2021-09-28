@@ -1,5 +1,4 @@
 @import '../../styles/common.scss';
-
 .wrapper {
     box-sizing: border-box;
     font-family: RobotoCondensed;
@@ -14,17 +13,12 @@
     &:hover {
         margin: 10px 0px;
     }
-    &:active {
-    }
 }
-
-
 @include themeify {
     $color: getColor(main);
     $light: getColor(light);
     $dark: getColor(dark);
     $font: themed(font);
-    
     .wrapper {
         color: $font; 
         background: $color;
@@ -35,27 +29,6 @@
         }
     }
 }
-
-.header {
-
-}
-
-.body {
-
-}
-
-@media screen and (min-width: $screen-sm-min) {
-    .wrapper {
-        // color: blue;
-    }
-}
-
-@media screen and (min-width: $screen-md-min) {
-
-}
-
-@media screen and (min-width: $screen-lg-min) {
-    .wrapper {
-        // color: green;
-    }
-}
+@media screen and (min-width: $screen-sm-min) {}
+@media screen and (min-width: $screen-md-min) {}
+@media screen and (min-width: $screen-lg-min) {}

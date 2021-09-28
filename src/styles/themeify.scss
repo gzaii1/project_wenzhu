@@ -1,5 +1,4 @@
 @import './themes.scss';
-
 @mixin themeify {
     @each $theme-name, $theme-map in $themes {
         $theme-map: $theme-map!global;
@@ -8,12 +7,9 @@
         }
     }
 }
-
-@function themed($key) {
+@function themed($key) { // 获取主题对应属性值
     @return map-get($theme-map, $key);
 }
-
-// 获取颜色map
-@function getColor($index) {
+@function getColor($index) { // 获取颜色map
     @return map-get(themed('color-map'), $index)
 }

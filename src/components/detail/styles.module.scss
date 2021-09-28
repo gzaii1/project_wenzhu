@@ -1,5 +1,4 @@
 @import '../../styles/common.scss';
-
 .container {
     position: fixed;
     top: 0;
@@ -8,20 +7,15 @@
     z-index: $article-detail;
     transition: opacity .3s;
     @include mask;
+    &[data-visible="show"] {
+        opacity: 1;
+        pointer-events: all;
+    }
+    &[data-visible="hidden"] {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
-
-[data-visible="show"] {
-    opacity: 1;
-    pointer-events: all;
-}
-
-[data-visible="hidden"] {
-    opacity: 0;
-    pointer-events: none;
-}
-
 @media screen and (min-width: $screen-sm-min) {}
-
 @media screen and (min-width: $screen-md-min) {}
-
 @media screen and (min-width: $screen-lg-min) {}
