@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useSelector } from '../hooks'
+import { useSelector } from '@hooks'
 
 export const Header:React.FC = ({ children }) => {
     const store = useSelector(state => state.HomeModel)

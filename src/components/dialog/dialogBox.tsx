@@ -1,4 +1,4 @@
-import { IDialog } from '../../store/Dialog.model'
+import { IDialog } from '@store/Dialog.model'
 import { useState, useEffect, useRef } from 'react'
 
 const Box = (props: IDialog) => {

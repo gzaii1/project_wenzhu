@@ -1,5 +1,5 @@
 import { HashRouter } from 'react-router-dom'
-import { Header, Dialog } from './components'
+import { Header, Dialog } from '@components'
 import { observer } from 'mobx-react-lite'
 import { useSelector } from '@hooks'
 import { DndProvider } from 'react-dnd'

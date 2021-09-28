@@ -1,5 +1,5 @@
 import store from '@store'
-import { IDialog } from '../store/Dialog.model'
+import { IDialog } from '@store/Dialog.model'
 
 type DialogType = {
     show: (msg: IDialog) => void

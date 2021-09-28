@@ -3,10 +3,15 @@
     "baseUrl": "./",
     "paths": {
       "@components": ["src/components"],
+      "@components/*": ["src/components/*"],
       "@hooks": ["src/hooks"],
+      "@hooks/*": ["src/hooks/*"],
       "@pages": ["src/pages"],
+      "@pages/*": ["src/pages/*"],
       "@utils": ["src/utils"],
-      "@store": ["src/store"]
+      "@utils/*": ["src/utils/*"],
+      "@store": ["src/store"],
+      "@store/*": ["src/store/*"]
     },
     "target": "es5",
     "lib": [

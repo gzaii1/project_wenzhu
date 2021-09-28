@@ -1,5 +1,5 @@
 import * as React from 'react'
-import store, { storeContext }  from './store'
+import store, { storeContext }  from '@store'
 import Layout from './layout'
 
 const App: React.FC = () => {

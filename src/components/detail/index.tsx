@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IArticleModel } from '../../store/Article.model'
+import { IArticleModel } from '@store/Article.model'
 import styles from './styles.module.scss'
 import { useHistory } from 'react-router'
 import { useCache } from '@hooks'

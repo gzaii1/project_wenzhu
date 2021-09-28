@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from './useSelector'
 import { useHistory } from 'react-router'
-import { IArticleModel } from '../store/Article.model'
+import { IArticleModel } from '@store/Article.model'
 
 export interface IUseArticleControl {
     visible: boolean,

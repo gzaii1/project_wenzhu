@@ -1,6 +1,6 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
-import { useSelector } from '../../hooks'
+import { useSelector } from '@hooks'
 import styles from './styles.module.scss'
 import { Title } from '@components'
 
