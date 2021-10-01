@@ -4,6 +4,7 @@
 import * as React from 'react'
 import { observer } from 'mobx-react-lite' 
 import { Editor, EditorState, RichUtils } from 'draft-js';
+import styles from './styles.module.scss'
 import 'draft-js/dist/Draft.css';
 
 const { useState } = React
@@ -27,6 +28,7 @@ const Creation: React.FC = observer(() => {
     }
     return <div>
         <button onClick={_onBoldClick}>Bold</button>
+        <span className={styles.test}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, ullam repellendus! Autem reprehenderit atque doloremque ipsa hic voluptatibus id vitae rem dolor. Totam sapiente ipsa eum! Error voluptatum ullam alias.</span>
          <Editor
             editorState={editorState}
             onChange={setEditorState}

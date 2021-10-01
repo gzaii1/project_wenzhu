@@ -5,13 +5,17 @@ export const Card: React.FC<ICard> = (props) => {
     const {
         title,
         text,
+        style={},
     } = props
     const history = useHistory()
-    return <div className={styles.wrapper} onClick={() => {
-        history.push({
-            search: title
-        })
-    }}>
+    return <div
+            style={style}
+            className={styles.wrapper}
+            onClick={() => {
+                history.push({
+                    search: title
+                })
+            }}>
         <header className={styles.header}>
             <span>{ title }</span>
             <div className={styles.body}>
@@ -24,4 +28,5 @@ export const Card: React.FC<ICard> = (props) => {
 interface ICard {
     title: string,
     text: string,
+    style?: object;
 }

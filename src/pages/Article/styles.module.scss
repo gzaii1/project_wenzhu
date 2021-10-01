@@ -1,6 +1,7 @@
 @import '../../styles/common.scss';
 
 .article {
+    box-sizing: border-box;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -14,69 +15,72 @@
         display: flex;
         width: 100%;
         height: 100%;
-        .left { // 左侧区域
-            position: relative;
-            width: 300px;
-            display: none;
-            border: 1px solid yellow;
-            .hot-search {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                height: 600px;
-                flex-direction: column;
-                padding-bottom: 30px;
-            }
-        }
-        .main { // 中间区域
-            flex: 1;
-            border: 1px solid blue;
-        }
-        .right { // 右侧区域
-            display: none;
-            width: 300px;
-            border: 1px solid red;
+    }
+}
+.left { // 左侧区域
+    position: relative;
+    width: 300px;
+    display: none;
+    .hot-search {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 600px;
+        flex-direction: column;
+        padding: 15px;
+        box-sizing: border-box;
+        &>* {
+            flex: 1 0;
+            height: 25%;
+            width: 100%;
+            margin: 10px 20px;
         }
     }
+}
+.middle { // 中间区域
+    flex: 1;
+}
+.right { // 右侧区域
+    display: none;
+    width: 300px;
 }
 @include themeify {
     $color: getColor(main);
     .article {
         background-color: $color;
     }
+    .middle {
+        background-color: getColor(light);
+    }
 }
 @media screen and (min-width: $screen-sm-min) {
     .article {
-        .wrapper {
-
-        }
+        .wrapper {}
     }
 }
 @media screen and (min-width: $screen-md-min) {
     .article {
-        .wrapper {
-            .left {
-                display: block;
-                width: 200px;
-            }
-            .right {
-                display: flex;
-                width: 200px;
-            }
-        }
+        .wrapper {}
+    }
+    .left {
+        display: block;
+        width: 200px;
+    }
+    .right {
+        display: flex;
+        width: 200px;
     }
 }
 @media screen and (min-width: $screen-lg-min) {
     .article {
-        .wrapper {
-            .left {
-                display: block;
-                width: 400px;
-            }
-            .right {
-                display: flex;
-                width: 300px;
-            }
-        }
+        .wrapper {}
+    }
+    .left {
+        display: block;
+        width: 400px;
+    }
+    .right {
+        display: flex;
+        width: 300px;
     }
 }

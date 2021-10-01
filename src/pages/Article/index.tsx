@@ -2,14 +2,13 @@
 import React, { useEffect }  from 'react'
 import { observer } from 'mobx-react-lite'
 import { useSelector, useArticleControl } from '@hooks'
-import { Card, Tag, Detail, Title } from '@components'
+import { Card, Detail, Title } from '@components'
 import { RouteComponentProps } from 'react-router-dom'
-import { dialog } from '@utils'
+import Left from './left'
 import styles from './styles.module.scss'
 
 const Article: React.FC<RouteComponentProps> = observer((props) => {
-    const { getArticles, articles } = useSelector(state => state.ArticleListModel)
-    const { theme, setTheme } = useSelector(state => state.CommonModel)
+    const { getArticles } = useSelector(state => state.ArticleListModel)
     const { visible, article } = useArticleControl()
 
     useEffect(() => {
@@ -17,54 +16,24 @@ const Article: React.FC<RouteComponentProps> = observer((props) => {
         getArticles()
     }, [])
 
-    const articleRender = () => {
-        return articles.map(article => {
-            return <Card 
-                    key={article.id} 
-                    title={article.title} 
-                    text={article.text}
-                />
-        })
-    }
     return <div className={styles['article']}>
         <Title>文章</Title>
         {/* 头部 */}
         <header className={styles['header']}>
             头部
         </header>
-        
+        {/* 主体区域 */}
         <section className={styles['wrapper']}>
             {/* 左侧区域 */}
-            <div className={styles['left']}>
-                <label>
-                    <input type="text" placeholder="输入你的tag"/>
-                </label>
-                
-                <Tag />
-                <div className={styles['hot-search']}>
-                    { articleRender() }
-                </div>
-
-                <button onClick={() => {
-                    setTheme(theme === 'default' ? 'cheerful' : theme === 'cheerful' ? "business" : theme === 'business' ? 'default' : 'default')
-                }}>换一组:{theme}</button>
-                <button onClick={() => {
-                    dialog().show({
-                        title: `${Math.random() * 1000 | 0}`,
-                        message: '',
-                        buttons: [null]
-                    })
-                }}>触发dialog</button>
-            </div>
-
-
-            <div className={styles['main']}>
+            <Left />
+            <div className={styles['middle']}>
                 中心区域
             </div>
-
-
             <div className={styles['right']}>
-                右侧
+                <Card
+                    title={'标题'}
+                    text={'hello'}
+                ></Card>
             </div>
         </section>
         

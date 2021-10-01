@@ -2,16 +2,15 @@
 .wrapper {
     box-sizing: border-box;
     font-family: RobotoCondensed;
-    width: 80%;
-    flex: 1 0;
     cursor: pointer;
-    margin: 5px 0px;
+    margin: 10px;
     border-radius: 30px;
     will-change: transform;
     transform: translate(0, 0);
     transition: .3s;
-    &:hover {
-        margin: 10px 0px;
+    overflow: hidden;
+    .header {
+        font-family: ZCOOLXiaoWei;
     }
 }
 @include themeify {
@@ -22,8 +21,7 @@
     .wrapper {
         color: $font; 
         background: $color;
-        box-shadow:  20px 20px 60px $dark,
-                    -20px -20px 60px $light;
+        box-shadow:  8px 8px 16px $dark;
         &:hover {
             background-color: hover($color);
         }

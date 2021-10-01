@@ -1,0 +1,10 @@
+@import '../../styles/common.scss';
+
+.test {
+    &::selection {
+        display: block;
+        color: red;
+        background:blue;
+        outline: solid;
+    }
+}
