@@ -34,11 +34,22 @@
             flex-direction: column;
             padding: 15px;
             box-sizing: border-box;
+            position: relative;
             &>* {
                 flex: 1 0;
                 height: 25%;
                 width: 100%;
                 margin: 10px 20px;
+            }
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                right: -10px;
+                height: 90%;
+                top: 5%;
+                border-width: 0;
+                border-style: solid;
             }
         }
     }
@@ -52,15 +63,22 @@
 @include themeify {
     $color: getColor(main);
     $white: getColor(white);
+    $dark: getColor(dark);
     .article {
         background-color: $white;
+        .left .hot-search::after {
+            border-color: $dark;
+        }
     }
 }
 @media screen and (min-width: $screen-sm-min) {
     .article {
         .main {}
         .left {
-            width: 550px;   
+            width: 550px;
+            .hot-search::after {
+                border-left-width: 1px;
+            }
         }
         .right {
             display: flex;

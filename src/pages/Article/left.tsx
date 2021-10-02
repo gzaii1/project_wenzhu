@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite'
 import { useSelector } from '@hooks'
 import { Tag, List } from '@components'
 import { dialog } from '@utils'
+import dayjs from 'dayjs'
 import styles from './styles.module.scss'
     
 const Left = observer(() => {
@@ -14,6 +15,7 @@ const Left = observer(() => {
         text: item.text,
         imgUrl: item.coverPicUrl,
         author: item.author,
+        createTime: dayjs(item.createTime),
     }))
 
     return <div className={styles['left']}>

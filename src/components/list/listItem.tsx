@@ -1,6 +1,13 @@
 import * as React from 'react'
+import dayjs, { Dayjs } from 'dayjs'
 import admin from '@static/admin.png';
+import bookmark from '@static/bookmark.png';
+import more from '@static/more.png';
 import styles from './styles.module.scss'
+import { Tag } from '@components'
+import 'dayjs/locale/zh-cn'
+
+dayjs.locale('zh-cn')
 
 export interface IListItem {
     id?: string,
@@ -9,6 +16,7 @@ export interface IListItem {
     title: string,
     text: string,
     author: string,
+    createTime: Dayjs,
 }
 
 const Item: React.FC<IListItem> = (props) => {
@@ -17,6 +25,7 @@ const Item: React.FC<IListItem> = (props) => {
         text,
         imgUrl,
         author,
+        createTime,
     } = props
 
     return <section className={styles.item}>
@@ -28,7 +37,19 @@ const Item: React.FC<IListItem> = (props) => {
             </header>
             <h2>{ title }</h2>
             <p> { text } </p>
-            <div className={styles.msgBox}>其他信息</div>
+            <div className={styles.config}>
+                <span> { createTime.format('MM-DD-YYYY') } </span>
+                
+                <div className={styles.tags}>
+                    <Tag />
+                    <Tag />
+                </div>
+
+                <div>
+                    <img src={bookmark} alt="" />
+                    <img src={more} alt="" />
+                </div>
+            </div>
         </article>
         <img src={imgUrl} alt="" />
     </section>
