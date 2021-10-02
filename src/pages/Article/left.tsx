@@ -2,14 +2,13 @@
 import * as  React from 'react'
 import { observer } from 'mobx-react-lite'
 import { useSelector } from '@hooks'
-import { Tag, List } from '@components'
+import { List } from '@components'
 import { dialog } from '@utils'
 import dayjs from 'dayjs'
 import styles from './styles.module.scss'
     
 const Left = observer(() => {
     const { articles } = useSelector(state => state.ArticleListModel)
-    const { theme, setTheme } = useSelector(state => state.CommonModel)
     const dataSource = articles.map(item => ({
         title: item.title,
         text: item.text,
@@ -22,9 +21,6 @@ const Left = observer(() => {
         <div className={styles['hot-search']}>
             <List dataSource={dataSource}/>
         </div>
-        <button onClick={() => {
-            setTheme(theme === 'default' ? 'cheerful' : theme === 'cheerful' ? "business" : theme === 'business' ? 'default' : 'default')
-        }}>换一组:{theme}</button>
         <button onClick={() => {
             dialog().show({
                 title: `${Math.random() * 1000 | 0}`,

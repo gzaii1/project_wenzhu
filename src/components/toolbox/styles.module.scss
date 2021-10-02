@@ -1,0 +1,38 @@
+@import '../../styles/common.scss';
+
+.toolbox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 2em;
+    justify-content: flex-end;
+    &>*{
+        display: inline-block;
+        cursor: pointer;
+    }
+    i {
+        padding: 8px 3px 3px 3px;
+        font-size: 1em;
+        margin: 0 10px;
+    }
+    button {
+        height: 100%;
+        font-weight: 400;
+        border-radius: 99em;
+        padding: 0 12px;
+        background-color: transparent;
+        border: 1px solid rgba(117, 117, 117, 1);
+        outline: none;
+        margin-left: 10px;
+    }
+    .user {
+        border-radius: 50%;
+        height: 2em;
+        overflow: hidden;
+        margin-left: 10px;
+        img {
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+}

@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite'
 import { useSelector } from '@hooks'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
+import './iconfont/flaticon.scss'
 import routes from './routes'
 import './global.css'
 

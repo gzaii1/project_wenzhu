@@ -37,8 +37,10 @@ $real-header-height: 40px;
         font-family: Ephesis;
         font-size: 28px;
         color: #333;
-        padding: 0 30px;
-        margin-left: 40px;
+        justify-content: space-between;
+        &>*:first-child {
+            margin-left: 40px;
+        }
     }
     .header {
         height: $header-height;
@@ -50,20 +52,25 @@ $real-header-height: 40px;
         flex: 1 0 $header-height;
         align-items: center;
         clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
-        padding: 0 30px;
         &>div {
             position: fixed;
             display: flex;
-            width: 100%;
+            padding: 0 30px;
+            width: calc(100% - 30px * 2);
             height: $header-height;
             font-family: Ephesis;
             align-items: center;
-            .icon {
-                justify-self: flex-start;
-                height: 30px;
-                object-fit: cover;
-                margin: 0 15px 0 10px;
-                font-size: 30px;
+            justify-content: space-between;
+            h2 {
+                display: flex;
+                justify-content: center;
+                .icon {
+                    justify-self: flex-start;
+                    height: 30px;
+                    object-fit: cover;
+                    margin: 0 15px 0 10px;
+                    font-size: 30px;
+                }
             }
         }
     }
