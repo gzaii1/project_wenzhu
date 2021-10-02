@@ -6,7 +6,8 @@ $default-theme: (
         light: #47EEAE,
         confirm: #00B872,
         disabled: #206B4E,
-        dark: #006B42
+        dark: #006B42,
+        white: #e6fff1,
     ),
 );
 $cheerful-theme: (
@@ -17,7 +18,8 @@ $cheerful-theme: (
         light: #EE7E4F,
         confirm: #B83B06,
         disabled: #6B3923,
-        dark: #6B2203
+        dark: #6B2203,
+        white: #fff1e6,
     ),
 );
 $business-theme: (
@@ -28,7 +30,8 @@ $business-theme: (
         light: #4790EE,
         confirm: #0050B8,
         disabled: #20416B,
-        dark: #002E6B
+        dark: #002E6B,
+        white: #e6f5ff,
     ),
 );
 $themes: (

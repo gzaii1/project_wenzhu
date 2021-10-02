@@ -10,7 +10,29 @@
     transition: .3s;
     overflow: hidden;
     .header {
-        font-family: ZCOOLXiaoWei;
+        position: relative;
+        height: 44%;
+        &>span {
+            box-sizing: border-box;
+            display: inline-block;
+            font-family: ZCOOLXiaoWei;
+            padding-top: 10px;
+            padding-right: 50%;
+            text-align: center;
+            width: 100%;
+            color: #fff;
+            text-shadow: 1px 1px 3px #000;
+        }
+        &>div {
+            backdrop-filter: blur(10px);
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;   
+        }
     }
 }
 @include themeify {

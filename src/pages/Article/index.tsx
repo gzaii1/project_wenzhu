@@ -2,9 +2,11 @@
 import React, { useEffect }  from 'react'
 import { observer } from 'mobx-react-lite'
 import { useSelector, useArticleControl } from '@hooks'
-import { Card, Detail, Title } from '@components'
+import { Detail } from '@components'
 import { RouteComponentProps } from 'react-router-dom'
+import Header from './header'
 import Left from './left'
+import Right from './right'
 import styles from './styles.module.scss'
 
 const Article: React.FC<RouteComponentProps> = observer((props) => {
@@ -16,27 +18,14 @@ const Article: React.FC<RouteComponentProps> = observer((props) => {
         getArticles()
     }, [])
 
-    return <div className={styles['article']}>
-        <Title>文章</Title>
-        {/* 头部 */}
-        <header className={styles['header']}>
-            头部
-        </header>
+    return <div className={styles.article}>
+        <Header />
         {/* 主体区域 */}
-        <section className={styles['wrapper']}>
+        <section className={styles.main}>
             {/* 左侧区域 */}
             <Left />
-            <div className={styles['middle']}>
-                中心区域
-            </div>
-            <div className={styles['right']}>
-                <Card
-                    title={'标题'}
-                    text={'hello'}
-                ></Card>
-            </div>
+            <Right />
         </section>
-        
         
         {/* 文章主题弹窗, 之后做组件分离 */}
         <Detail

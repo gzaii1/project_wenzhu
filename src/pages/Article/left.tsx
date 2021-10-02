@@ -14,8 +14,9 @@ const Left = observer(() => {
         return articles.map(article => {
             return <Card
                     key={article.id} 
-                    title={article.title} 
+                    title={article.title}
                     text={article.text}
+                    coverPicUrl={article.coverPicUrl}
                 />
         })
     }

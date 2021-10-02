@@ -5,7 +5,8 @@ export const Card: React.FC<ICard> = (props) => {
     const {
         title,
         text,
-        style={},
+        style,
+        coverPicUrl,
     } = props
     const history = useHistory()
     return <div
@@ -18,10 +19,11 @@ export const Card: React.FC<ICard> = (props) => {
             }}>
         <header className={styles.header}>
             <span>{ title }</span>
-            <div className={styles.body}>
-                <span>{ text }</span>
-            </div>
+            { coverPicUrl && <div style={coverPicUrl ? { backgroundImage: `url(${coverPicUrl})` } : { }} /> }
         </header>
+        <div className={styles.body}>
+                <span>{ text }</span>
+        </div>
     </div>
 }
 
@@ -29,4 +31,5 @@ interface ICard {
     title: string,
     text: string,
     style?: object;
+    coverPicUrl?: string, 
 }

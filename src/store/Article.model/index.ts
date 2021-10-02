@@ -12,6 +12,7 @@ export const ArticleModel = types
         createTime: types.optional(types.string, ''),
         lastUpdateTime: types.optional(types.string, ''),
         text: types.optional(types.string, ''),
+        coverPicUrl: types.optional(types.string, ''),
     })
 
 export const ArticleListModel = types
