@@ -19,15 +19,9 @@ const Left = observer(() => {
     }))
 
     return <div className={styles['left']}>
-        <label>
-            <input type="text" placeholder="输入你的tag"/>
-        </label>
-        
-        <Tag />
         <div className={styles['hot-search']}>
             <List dataSource={dataSource}/>
         </div>
-
         <button onClick={() => {
             setTheme(theme === 'default' ? 'cheerful' : theme === 'cheerful' ? "business" : theme === 'business' ? 'default' : 'default')
         }}>换一组:{theme}</button>

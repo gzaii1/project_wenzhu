@@ -30,6 +30,6 @@ export const Card: React.FC<ICard> = (props) => {
 interface ICard {
     title: string,
     text: string,
-    style?: object;
+    style?: React.CSSProperties;
     imgUrl?: string, 
 }

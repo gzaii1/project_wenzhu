@@ -30,7 +30,6 @@
         }
     }
 }
-
 @include themeify {
     $dark: getColor(disabled);
     .dialog {

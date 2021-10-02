@@ -19,7 +19,10 @@ export interface IListItem {
     createTime: Dayjs,
 }
 
+const { useState } = React
+
 const Item: React.FC<IListItem> = (props) => {
+    const [imgLoaded, setLoaded] = useState(false)
     const {
         title,
         text,
@@ -27,6 +30,7 @@ const Item: React.FC<IListItem> = (props) => {
         author,
         createTime,
     } = props
+    const handleImgLoaded = e => e.isTrusted && setLoaded(true)
 
     return <section className={styles.item}>
         <article>
@@ -40,9 +44,10 @@ const Item: React.FC<IListItem> = (props) => {
             <div className={styles.config}>
                 <span> { createTime.format('MM-DD-YYYY') } </span>
                 
-                <div className={styles.tags}>
-                    <Tag />
-                    <Tag />
+                <div className={styles.tags}>            
+                    <Tag style={{ marginRight: 10}}>热门推荐</Tag>
+                    <Tag style={{ marginRight: 10}}>恶搞</Tag>
+                    <Tag style={{ marginRight: 10}}>体育</Tag>
                 </div>
 
                 <div>
@@ -51,7 +56,14 @@ const Item: React.FC<IListItem> = (props) => {
                 </div>
             </div>
         </article>
-        <img src={imgUrl} alt="" />
+
+        <img
+            src={imgUrl}
+            className={styles.thumbnail}
+            alt=""
+            onLoad={handleImgLoaded}
+            style={{visibility: imgLoaded ? 'visible' : 'hidden'}}
+        />
     </section>
 }
 
