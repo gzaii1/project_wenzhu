@@ -1,0 +1,89 @@
+@import '../../styles/common.scss';
+.list {
+    .item {
+        box-sizing: border-box;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        transition: width .3s, height .3s;
+        margin: 0;
+        display: flex;
+        &:not(:last-child) {
+            margin-bottom: 65px;
+        }
+        article {
+            flex: 1 0 calc(100% - 200px - 30px);
+            width: calc(100% - 200px - 30px);
+            padding-right: 30px;
+            position: unset;
+            header {
+                font-size: 13px;
+                text-overflow: ellipsis;
+                font-weight: 500;
+                margin-bottom: 8px;
+                h4 {
+                    margin: 0;
+                    font-weight: 500;
+                    font-family: ZCOOLXiaoWei;
+                }
+                img {
+                    vertical-align: middle;
+                    height: 1em;
+                    object-fit: cover;
+                    margin-right: 10px;
+                }
+            }
+            h2 {
+                font-family: NotoSansSC;
+                margin: 0;
+                color: rgba(41, 41, 41, 1);
+                font-size: 22px;
+                font-weight: 700;
+            }
+            p {
+                margin: 4px 0 0 0;
+                font-size: 16px;
+                text-overflow: ellipsis;
+                word-break: break-all;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 5;
+                overflow: hidden;
+                font-weight: 400;
+                color: rgba(117, 117, 117, 1);
+            }
+            .msgBox {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+            }
+        }
+        &>img{
+            flex: 1 0 200px;
+            width: 200px;
+            max-height: 200px;
+            object-fit: cover;
+        }
+    }
+}
+@media screen and (min-width: $screen-sm-min) {}
+@media screen and (min-width: $screen-md-min) {
+    .list {
+        .item {
+            height: 150px;
+            article {
+                position: relative;
+                p {
+                    -webkit-line-clamp: 2!important;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: $screen-lg-min) {
+    .list {
+        
+    }
+}

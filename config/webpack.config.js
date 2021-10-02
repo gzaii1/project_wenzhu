@@ -343,6 +343,8 @@ module.exports = function (webpackEnv) {
         '@utils/*': path.resolve(__dirname, '../src/utils/*'),
         '@store': path.resolve(__dirname, '../src/store'),
         '@store/*': path.resolve(__dirname, '../src/store/*'),
+        '@static': path.resolve(__dirname, '../src/static'),
+        '@static/*': path.resolve(__dirname, '../src/static/*'),
         ...(modules.webpackAliases || {}),
       },
       plugins: [

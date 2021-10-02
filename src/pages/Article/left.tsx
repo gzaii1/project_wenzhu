@@ -2,24 +2,19 @@
 import * as  React from 'react'
 import { observer } from 'mobx-react-lite'
 import { useSelector } from '@hooks'
-import { Card, Tag } from '@components'
+import { Tag, List } from '@components'
 import { dialog } from '@utils'
 import styles from './styles.module.scss'
     
 const Left = observer(() => {
     const { articles } = useSelector(state => state.ArticleListModel)
     const { theme, setTheme } = useSelector(state => state.CommonModel)
-
-    const articleRender = () => {
-        return articles.map(article => {
-            return <Card
-                    key={article.id} 
-                    title={article.title}
-                    text={article.text}
-                    coverPicUrl={article.coverPicUrl}
-                />
-        })
-    }
+    const dataSource = articles.map(item => ({
+        title: item.title,
+        text: item.text,
+        imgUrl: item.coverPicUrl,
+        author: item.author,
+    }))
 
     return <div className={styles['left']}>
         <label>
@@ -28,7 +23,7 @@ const Left = observer(() => {
         
         <Tag />
         <div className={styles['hot-search']}>
-            { articleRender() }
+            <List dataSource={dataSource}/>
         </div>
 
         <button onClick={() => {
