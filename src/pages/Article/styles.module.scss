@@ -103,6 +103,31 @@ $real-header-height: 40px;
                 width: 100%;
                 margin: 10px 20px;
             }
+            .tab {
+                flex: 0 0 30px;
+                width: 100%;
+                position: relative;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                display: flex;
+                align-items: center;
+                &>* {
+                    display: inline;
+                    font-family: NotoSerifSC;
+                    flex: 1;
+                    cursor: pointer;
+                    background-size: 0 100%;
+                    background-position: left;
+                    background-origin: content-box;
+                    background-repeat: repeat-y;
+                    background-clip: text;
+                    &:hover {
+                        transition: .6s;
+                        color: transparent;
+                        background-size: 100% 100%;
+                    }
+                }
+            }
             &::after {
                 content: '';
                 display: block;
@@ -126,10 +151,23 @@ $real-header-height: 40px;
     $color: getColor(main);
     $white: getColor(white);
     $dark: getColor(dark);
+    $black: getColor(black);
     .article {
         background-color: $white;
-        .left .list::after {
+        & * {
             border-color: $dark;
+        }
+        & *::selection {
+            background-color: $black;
+            color: $white;
+        }
+        .left .list{
+            &::after {
+                border-color: $dark;
+            }
+            .tab>* {
+                background-image: linear-gradient(45deg, $color, $dark);
+            }
         }
     }
 }
@@ -141,8 +179,13 @@ $real-header-height: 40px;
         .main {}
         .left {
             width: 550px;
-            .list::after {
-                border-left-width: 1px;
+            .list {
+                &::after {
+                    border-left-width: 1px;
+                }
+                .tab>* {
+                    flex: 0 0 120px;
+                }
             }
         }
         .right {

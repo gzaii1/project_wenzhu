@@ -35,9 +35,8 @@
                 }
             }
             h2 {
-                font-family: NotoSansSC;
+                font-family: NotoSerifSC;
                 margin: 0;
-                color: rgba(41, 41, 41, 1);
                 font-size: 22px;
                 font-weight: 700;
                 letter-spacing: 1px;
@@ -112,7 +111,9 @@
         }
     }
 }
-@include themeify {} 
+@include themeify {
+    $dark: getColor(black);
+} 
 @media screen and (min-width: $screen-sm-min) {
     .list {
         .item {

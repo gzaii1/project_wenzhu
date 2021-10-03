@@ -1,4 +1,4 @@
-import { Card } from '@components'
+import { Card, Activity } from '@components'
 import styles from './styles.module.scss'
 import { useSelector } from '@hooks'
 import { observer } from 'mobx-react-lite'
@@ -8,12 +8,7 @@ const Right = observer((props) => {
     const { listHeight } = useSelector(state => state.CommonModel)
 
     return <div className={styles.right} style={{ height: listHeight }}>
-    <Card
-        title={'标题'}
-        text={'hello'}
-        style={{width: '100%'}}
-    ></Card>
-
+        <Activity />
     <Card
         title={'测试'}
         text={'hello'}

@@ -37,6 +37,10 @@ const Left = observer(() => {
 
     return <div className={styles.left}>
         <div className={styles.list}>
+            <nav className={styles.tab}>
+                <span>你的关注</span>
+                <span>猜你喜欢</span>
+            </nav>
             <List dataSource={dataSource}/>
         </div>
         <div ref={loadRef} className={styles.loading}>loading...</div>
