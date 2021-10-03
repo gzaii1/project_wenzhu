@@ -88,7 +88,7 @@ $real-header-height: 40px;
         flex-direction: column;
         align-items: center;
         transition: width .3s;
-        .hot-search {
+        .list {
             width: 90%;
             display: flex;
             align-items: center;
@@ -108,8 +108,8 @@ $real-header-height: 40px;
                 display: block;
                 position: absolute;
                 right: -10px;
-                height: 90%;
-                top: 5%;
+                height: 100%;
+                top: 0%;
                 border-width: 0;
                 border-style: solid;
             }
@@ -128,7 +128,7 @@ $real-header-height: 40px;
     $dark: getColor(dark);
     .article {
         background-color: $white;
-        .left .hot-search::after {
+        .left .list::after {
             border-color: $dark;
         }
     }
@@ -141,7 +141,7 @@ $real-header-height: 40px;
         .main {}
         .left {
             width: 550px;
-            .hot-search::after {
+            .list::after {
                 border-left-width: 1px;
             }
         }

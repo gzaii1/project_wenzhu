@@ -10,13 +10,18 @@ export interface ICommonModel extends Instance<typeof CommonModel> {}
 export const CommonModel = types
     .model({
         theme: types.optional(types.string, 'default'),
+        listHeight: types.optional(types.number, 0),
     })
     .actions((self) => {
         function setTheme(theme: ThemeTypes) {
             self.theme = theme
         }
+        function setListHeight(height: number) {
+            self.listHeight = height;
+        }
         return {
             setTheme,
+            setListHeight,
         }
     })
 

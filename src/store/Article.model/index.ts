@@ -24,13 +24,24 @@ export const ArticleListModel = types
             const result = yield request('/articles')
             self.articles = result
         })
-
         const getArticleById = flow(function* (id: string) {
             return yield request('/article/id')
+        })
+        // 暂时添加
+        const loadMore =flow(function*() {
+            const fake = [...self.articles].slice(0, 2)
+            const result = yield new Promise((resolve) => {
+                setTimeout(()=> {
+                    resolve(fake)
+                } , 500)
+            })
+            self.articles.push(...result)
+            return result
         })
 
         return {
             getArticles,
             getArticleById,
+            loadMore,
         }
     })

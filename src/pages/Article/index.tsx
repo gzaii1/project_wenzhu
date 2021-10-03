@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect }  from 'react'
+import * as React  from 'react'
 import { observer } from 'mobx-react-lite'
 import { useSelector, useArticleControl } from '@hooks'
 import { Detail } from '@components'
@@ -8,6 +8,8 @@ import Header from './header'
 import Left from './left'
 import Right from './right'
 import styles from './styles.module.scss'
+
+const { useEffect } = React
 
 const Article: React.FC<RouteComponentProps> = observer((props) => {
     const { getArticles } = useSelector(state => state.ArticleListModel)
@@ -18,7 +20,7 @@ const Article: React.FC<RouteComponentProps> = observer((props) => {
         getArticles()
     }, [])
 
-    return <div className={styles.article}>
+    return <div id="article" className={styles.article}>
         <Header />
         {/* 主体区域 */}
         <section className={styles.main}>
