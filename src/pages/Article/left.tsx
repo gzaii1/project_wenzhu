@@ -20,18 +20,18 @@ const Left = observer(() => {
     const handleScrollLoading = function (e) {
         const { top, height } = loadRef.current.getBoundingClientRect()
         const article = document.querySelector('#article')
-        if (e.deltaY > 0 && document.documentElement.offsetHeight >= top + height / 2) {
-            article.removeEventListener('wheel', handleScrollLoading)
+        if (document.documentElement.offsetHeight >= top + height / 2) {
+            article.removeEventListener('scroll', handleScrollLoading)
             loadMore().then(() => {
-                article.addEventListener('wheel', handleScrollLoading)  
+                article.addEventListener('scroll', handleScrollLoading)  
             })
         }
     }
     useEffect(() => {
         const article = document.querySelector('#article')
-        article.addEventListener('wheel', handleScrollLoading)
+        article.addEventListener('scroll', handleScrollLoading)
         return () => {
-            article.removeEventListener('wheel', handleScrollLoading)
+            article.removeEventListener('scroll', handleScrollLoading)
         }
     }, [])
 
