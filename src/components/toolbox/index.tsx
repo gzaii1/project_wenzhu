@@ -21,7 +21,7 @@ export const Toolbox: React.FC<IToolbox> = observer((props) => {
         <i className="flaticon-bookmark"></i>
         <i className="flaticon-email"></i>
         <i className="flaticon-theme" onClick={handleThemeChange}></i>
-        { size === 'normal' && <button>Upgrade</button> }
+        { size === 'normal' && <button>写点什么</button> }
         <div className={styles.user}>
             <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fd24bab299ca9f8af7ffc86ced948c6becbec9ee1.jpg&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1635774835&t=ec95fc1b2d4c244163579548a47e23e7" alt="" />
         </div>

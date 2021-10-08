@@ -22,9 +22,18 @@ $real-header-height: 40px;
         flex: 1 0 $real-header-height;
         backdrop-filter: blur(2px);
         display: flex;
-        justify-content: center;
         align-items: center;
-        background-color: rgba($color: #fff, $alpha: .4);        
+        background-color: rgba($color: #fff, $alpha: .4);
+        label {
+            display: none;
+            margin-left: 300px;
+            margin-right: 20px;
+            font-size: 14px;
+            font-weight: 400;
+            span {
+                vertical-align: middle;
+            }
+        }        
     }
     .realHeader {
         position: fixed;
@@ -39,8 +48,12 @@ $real-header-height: 40px;
         font-size: 28px;
         color: #333;
         justify-content: space-between;
-        &>*:first-child {
-            margin-left: 40px;
+        pointer-events: none;
+        &>*{
+            pointer-events: all;
+            &:first-child {
+                margin-left: 40px;
+            }
         }
     }
     .header {
@@ -192,6 +205,11 @@ $real-header-height: 40px;
         .right {
             display: flex;
             width: 150px;
+        }
+        .fakeHeader {
+            label {
+                display: block;
+            }
         }
     }
 }

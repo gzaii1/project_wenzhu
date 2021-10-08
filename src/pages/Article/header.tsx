@@ -1,4 +1,4 @@
-import { Title, Toolbox } from '@components'
+import { Title, Toolbox, Tag } from '@components'
 import home from '@static/home.png'
 import styles from './styles.module.scss'
 
@@ -17,6 +17,12 @@ const Header = () => {
 
         <div className={styles.fakeHeader}>
             {/* <input type="text" /> */}
+            <label>
+                <span>当前标签:</span>
+                <Tag style={{ marginLeft: 10}}>热门推荐</Tag>
+                <Tag style={{ marginLeft: 10}}>恶搞</Tag>
+                <Tag style={{ marginLeft: 10}}>体育</Tag>
+            </label>
         </div>
 
         <div className={styles.realHeader}>
