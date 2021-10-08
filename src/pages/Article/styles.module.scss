@@ -159,6 +159,11 @@ $real-header-height: 40px;
         flex-direction: column;
         width: 300px;
         transition: width .3s;
+        .workstation {
+            position: sticky;
+            top: 50px;
+            width: 100%;
+        }
     }
 }
 @include themeify {
@@ -204,7 +209,7 @@ $real-header-height: 40px;
         }
         .right {
             display: flex;
-            width: 150px;
+            width: 200px;
         }
         .fakeHeader {
             label {
@@ -221,7 +226,7 @@ $real-header-height: 40px;
         }
         .right {
             display: flex;
-            width: 200px;
+            width: 250px;
         }
     }
 }

@@ -5,6 +5,7 @@ import { HomeModel } from './Home.model'
 import { ArticleModel, ArticleListModel } from './Article.model'
 import { DialogHeapModel } from './Dialog.model'
 import { CreationModel } from './Creation.model'
+import { AuthorAssemblyModel } from './Author.model'
 
 export type RootStoreType = typeof RootStoreModel.Type
 
@@ -15,6 +16,7 @@ export const RootStoreModel = types.model('RootStore', {
     ArticleListModel: types.optional(ArticleListModel, {}),
     DialogModel: types.optional(DialogHeapModel, {}),
     CreationModel: types.optional(CreationModel, {}),
+    AuthorModel: types.optional(AuthorAssemblyModel, {}),
 })
 
 const RootStore = RootStoreModel.create({})
