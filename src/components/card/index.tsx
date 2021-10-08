@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './styles.module.scss'
-import { useHistory } from 'react-router'
+import { useDialog } from '@hooks'
 export const Card: React.FC<ICard> = (props) => {
     const {
         title,
@@ -8,14 +8,13 @@ export const Card: React.FC<ICard> = (props) => {
         style,
         imgUrl,
     } = props
-    const history = useHistory()
+    const { show } = useDialog()
+    
     return <div
             style={style}
             className={styles.wrapper}
             onClick={() => {
-                history.push({
-                    search: title
-                })
+                show({ title: `${Math.random()}` })
             }}>
         <header className={styles.header}>
             <span>{ title }</span>
