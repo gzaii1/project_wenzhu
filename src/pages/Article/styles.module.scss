@@ -10,6 +10,7 @@ $real-header-height: 40px;
     flex-direction: column;
     overflow-x: hidden;
     overflow-y: auto;
+    scroll-behavior: smooth;
     position: relative;
     .fakeHeader {
         position: sticky;
@@ -93,7 +94,6 @@ $real-header-height: 40px;
         display: flex;
         justify-content: center;
         width: 100%;
-        height: 100%;
     }
     .left { // 左侧区域
         position: relative;
@@ -157,12 +157,13 @@ $real-header-height: 40px;
     .right { // 右侧区域
         display: none;
         flex-direction: column;
-        width: 300px;
+        width: 250px;
         transition: width .3s;
         .workstation {
             position: sticky;
             top: 50px;
             width: 100%;
+            height: calc(100vh - 50px);
         }
     }
 }
@@ -195,7 +196,6 @@ $real-header-height: 40px;
         .header {
             display: flex;
         }
-        .main {}
         .left {
             width: 550px;
             .list {
@@ -209,7 +209,6 @@ $real-header-height: 40px;
         }
         .right {
             display: flex;
-            width: 200px;
         }
         .fakeHeader {
             label {
@@ -220,25 +219,23 @@ $real-header-height: 40px;
 }
 @media screen and (min-width: $screen-md-min) {
     .article {
-        .main {}
         .left {
             width: 650px;
         }
         .right {
             display: flex;
-            width: 250px;
+            width: 300px;
         }
     }
 }
 @media screen and (min-width: $screen-lg-min) {
     .article {
-        .main {}
         .left {
             width: 800px;
         }
         .right {
             display: flex;
-            width: 300px;
+            width: 350px;
         }
     }
 }

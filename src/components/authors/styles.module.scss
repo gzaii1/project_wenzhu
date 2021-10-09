@@ -21,7 +21,8 @@
             overflow: hidden;
             position: relative;
             .avatar {
-                flex: 1 0;
+                flex: 0 0 50px;
+                width: 50px;
                 img {
                     height: 48px;
                     width: 48px;
@@ -30,7 +31,7 @@
                 }
             }
             .detail {
-                flex: 3 0;
+                flex: 0 0 120px;
                 overflow: hidden;
                 height: 100%;
                 display: flex;
@@ -46,9 +47,13 @@
                     font-size: 16px;
                     color: rgb(41, 41, 41);
                     flex: 1 0;
+                    padding: 13px 0 0 10px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
                 }
                 p {
-                    flex: 3 0;
+                    flex: 0 0;
                     display: -webkit-box;
                     font-weight: 400;
                     font-size: 13px;
@@ -56,16 +61,16 @@
                     text-overflow: ellipsis;
                     word-break: break-all;
                     -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 3;
+                    -webkit-line-clamp: 2;
                     overflow: hidden;
                     margin: 4px 10px 0 10px;
-                    // position: absolute;
-                    // bottom: 0;
-                    // left: 0;
+                    position: absolute;
+                    left: 0;
+                    top: 55px;
                 } 
             }
             button {
-                flex: 0 0 ;
+                flex: 0 0 60px;
                 padding: 6px 12px;
                 border-color: rgb(117, 117, 117);
                 border-width: 1px;
@@ -74,7 +79,7 @@
                 background-color: transparent;
                 font-weight: 400;
                 font-size: 14px;
-                margin-top: 10px;
+                margin-top: 8px;
                 color: rgb(117, 117, 117);
                 white-space: nowrap;
                 cursor: pointer;
@@ -90,9 +95,23 @@
             li {
                 height: 80px;
                 .detail {
+                    flex: 3 0;
+                    span {
+                        text-align: left;
+                        padding: 0px;
+                        overflow: visible;
+                        white-space: normal;
+                    }
                     p {
                         display: -webkit-box;
+                        flex: 3 0;
+                        position: relative;
+                        top: 0px;
+                        -webkit-line-clamp: 2;
                     }
+                }
+                button {
+                    margin-top: 10px;
                 }
             }
         }

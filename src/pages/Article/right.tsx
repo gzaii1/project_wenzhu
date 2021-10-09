@@ -1,17 +1,17 @@
 import * as React from 'react'
 import { Activity, Topics, Authors } from '@components'
 import styles from './styles.module.scss'
-import { useSelector } from '@hooks'
 import { observer } from 'mobx-react-lite'
 
 const Right = observer((props) => {
-    const { listHeight } = useSelector(state => state.CommonModel)
-
-    return <div className={styles.right} style={{ height: listHeight }}>
+    return <div className={styles.right}>
         <Activity />
         <div className={styles.workstation}>
             <Topics />
             <Authors />
+            <button onClick={() => {
+                document.querySelector('#article').scrollTop = 0
+            }}>回到首部</button>
         </div>
     </div>
 })

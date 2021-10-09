@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { useSelector } from '@hooks'
+import { observer } from 'mobx-react-lite'
 import styles from './styles.module.scss'
 
 const { useEffect } = React
 
-export const Authors = () => {
+export const Authors = observer(() => {
     const { getAuthors, authors } = useSelector(state => state.AuthorModel)
     useEffect(() => void getAuthors(), [])
 
@@ -28,4 +29,4 @@ export const Authors = () => {
             }
         </ul>
     </section>
-}
+})
