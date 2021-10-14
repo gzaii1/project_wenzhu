@@ -1,0 +1,19 @@
+@import '../../styles/common.scss';
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 20px;
+    a {
+        text-decoration: none;
+        padding: 0 30px 10px 0;
+        display: inline-block;
+        color: rgba(117, 117, 117, 1);
+        font-size: 14px;
+        font-weight: 400;
+    }
+}
+@include themeify {}
+@media screen and (min-width: $screen-sm-min) {}
+@media screen and (min-width: $screen-md-min) {}
+@media screen and (min-width: $screen-lg-min) {}
