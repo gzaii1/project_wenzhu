@@ -10,9 +10,6 @@ const Right = observer((props) => {
             <Topics />
             <Authors />
             <Footer />
-            {/* <button onClick={() => {
-                document.querySelector('#article').scrollTop = 0
-            }}>回到首部</button> */}
         </div>
     </div>
 })

@@ -24,7 +24,6 @@ const Article: React.FC<RouteComponentProps> = observer((props) => {
         <Header />
         {/* 主体区域 */}
         <section className={styles.main}>
-            {/* 左侧区域 */}
             <Left />
             <Right />
         </section>
