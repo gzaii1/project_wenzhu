@@ -2,7 +2,7 @@
 import * as React  from 'react'
 import { observer } from 'mobx-react-lite'
 import { useSelector, useArticleControl } from '@hooks'
-import { Detail } from '@components'
+import { Detail, Floating } from '@components'
 import { RouteComponentProps } from 'react-router-dom'
 import Header from './header'
 import Left from './left'
@@ -27,6 +27,7 @@ const Article: React.FC<RouteComponentProps> = observer((props) => {
             <Left />
             <Right />
         </section>
+        <Floating />
         
         {/* 文章主题弹窗, 之后做组件分离 */}
         <Detail

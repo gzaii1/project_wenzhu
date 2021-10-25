@@ -1,0 +1,19 @@
+@import '../../styles/common.scss';
+
+.floating {
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    border: 1px solid black;
+    position: fixed;
+    z-index: $article-floating;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 30px;
+    right: 30px;
+}
+@include themeify {}
+@media screen and (min-width: $screen-sm-min) {}
+@media screen and (min-width: $screen-md-min) {}
+@media screen and (min-width: $screen-lg-min) {}
